@@ -7,10 +7,17 @@ from samsungtvws import SamsungTVWS
 
 logging.basicConfig(level=logging.INFO)
 
-app = Flask(__name__)
+app = Flask(__name__,
+        static_url_path="/",
+        static_folder='build'
+        )
 
 tv_ip = os.environ.get('TV_IP') or "192.168.1.106"
 tv = SamsungTVWS(tv_ip)
+
+@app.route("/")
+def index():
+    return app.send_static_file('index.html')
 
 @app.route("/api/available.json")
 def list_available():
