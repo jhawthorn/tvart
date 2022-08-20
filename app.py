@@ -52,7 +52,9 @@ def preview(content_id):
     info = tv.art().available()
 
     thumbnail = tv.art().get_thumbnail(content_id)
-    return Response(thumbnail, mimetype='image/jpeg')
+    response = Response(thumbnail, mimetype='image/jpeg')
+    response.cache_control.max_age = 86400
+    return response
 
 @app.route("/api/upload", methods=["POST"])
 def upload():
