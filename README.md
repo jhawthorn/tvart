@@ -1,5 +1,5 @@
 # tvart
-Self hosted flask app with react frontend to upload art to a Samsung "The Frame" TV.
+Self hosted flask app with preact frontend to upload art to a Samsung "The Frame" TV.
 
 Based on https://github.com/xchwarze/samsung-tv-ws-api
 
