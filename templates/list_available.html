@@ -1,8 +1,0 @@
-{% extends "layout.html" %}
-{% block content %}
-  <ul>
-  {% for artwork in artworks %}
-  <a href="/set_artwork/{{ artwork.content_id }}"><img src="/preview/{{ artwork.content_id }}.jpg"></a>
-  {% endfor %}
-  </ul>
-{% endblock %}
