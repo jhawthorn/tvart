@@ -1,0 +1,6 @@
+# tvart
+Self hosted flask app with react frontend to upload art to a Samsung "The Frame" TV.
+
+Based on https://github.com/xchwarze/samsung-tv-ws-api
+
+<img width="1086" alt="Screen Shot 2022-08-20 at 12 09 54 PM" src="https://user-images.githubusercontent.com/131752/185762740-8b1528e8-6551-4026-b53e-e846a5b64dec.png">
