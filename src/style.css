@@ -7,7 +7,12 @@ h1 {
 	text-align: center;
 }
 
+.artwork-upload {
+	margin: 2em;
+}
+
 .artwork {
+	margin: 1em 1em;
 }
 
 .artwork-list {
@@ -25,6 +30,14 @@ h1 {
 
 .artwork-image {
 	width: 320px;
+	height: 180px;
+	background-color: lightgrey;
+}
+
+.artwork-image img {
+	max-height: 180px;
+	display: block;
+	margin: auto;
 }
 
 .artwork-selected-icon {

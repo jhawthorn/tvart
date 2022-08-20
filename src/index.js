@@ -5,9 +5,9 @@ import './style';
 function Artwork(props) {
   const {artwork, onSelect, onDelete} = props;
 
-  let classNames = ["artwork"];
+  let classNames = "artwork";
   if (artwork.selected) {
-    classNames.push("artwork-selected");
+    classNames += " artwork-selected";
   }
 
   return (
