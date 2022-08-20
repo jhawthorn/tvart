@@ -6,3 +6,11 @@ html, body {
 h1 {
 	text-align: center;
 }
+
+.artwork {
+}
+
+.artwork-list {
+	display: flex;
+	flex-wrap: wrap;
+}
