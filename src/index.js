@@ -75,11 +75,16 @@ export default function App() {
 
   return (
     <div>
+
+    <div className="header">
+      <button onClick={fetchData}>↻</button>
+    </div>
+
     <h1>TV ART!</h1>
 
     <ArtworkUpload />
 
-    <div class="artwork-list">
+    <div className="artwork-list">
         {artworks.map((artwork, i) =>
           <Artwork
           artwork={artwork}
