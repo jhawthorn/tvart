@@ -11,6 +11,7 @@ app = Flask(__name__,
         static_url_path="/",
         static_folder='build'
         )
+app.config['MAX_CONTENT_LENGTH'] = 32 * 1000 * 1000
 
 tv_ip = os.environ.get('TV_IP') or "192.168.1.106"
 tv = SamsungTVWS(tv_ip)
