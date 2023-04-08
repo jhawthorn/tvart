@@ -29,6 +29,8 @@ def list_available():
 
     current = art.get_current()["content_id"]
 
+    matte_list = [x["matte_type"] for x in art.get_matte_list()]
+
     # Remove duplicates
     seen = set()
     available = [x for x in available if x['content_id'] not in seen and (seen.add(x['content_id']) or True)]
@@ -36,7 +38,10 @@ def list_available():
     for art in available:
         art["selected"] = (art['content_id'] == current)
 
-    return jsonify(available)
+    return jsonify({
+        "available": available,
+        "matte_list": matte_list,
+        })
 
 @app.route("/api/select/<content_id>", methods=["POST"])
 def set_artwork(content_id):
@@ -60,6 +65,7 @@ def preview(content_id):
 @app.route("/api/upload", methods=["POST"])
 def upload():
     file = request.files['image']
+    matte = request.form.get("matte")
     filename = file.filename
 
     ext = filename.rsplit('.', 1)[1].lower()
@@ -67,7 +73,7 @@ def upload():
 
     data = file.read()
 
-    tv.art().upload(data, file_type=filetype)
+    tv.art().upload(data, file_type=filetype, matte=matte)
 
     return redirect("/")
 

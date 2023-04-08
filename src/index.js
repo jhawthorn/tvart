@@ -31,10 +31,16 @@ function Artwork(props) {
 }
 
 function ArtworkUpload(props) {
+  const {matteList} = props;
   return (
     <div class="artwork-upload">
       <form method="post" action="/api/upload" enctype="multipart/form-data">
         <input type="file" name="image" />
+        <select name="matte">
+          {matteList.map((matte) => (
+            <option value={matte}>{matte}</option>
+          ))}
+        </select>
         <button type="submit">Upload</button>
       </form>
     </div>
@@ -43,6 +49,7 @@ function ArtworkUpload(props) {
 
 export default function App() {
   const [artworks, setArtworks] = useState([]);
+  const [matteList, setMatteList] = useState([]);
 
   const fetchData = () => {
     fetch("/api/available.json")
@@ -51,7 +58,8 @@ export default function App() {
       })
       .then(data => {
         console.log("setting")
-        setArtworks(data)
+        setArtworks(data["available"])
+        setMatteList(data["matte_list"])
       })
   };
 
@@ -82,7 +90,7 @@ export default function App() {
 
     <h1>TV ART!</h1>
 
-    <ArtworkUpload />
+    <ArtworkUpload matteList={matteList} />
 
     <div className="artwork-list">
         {artworks.map((artwork, i) =>
